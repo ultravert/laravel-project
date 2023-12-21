@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CurrencyController;
 use App\Http\Controllers\Api\PostController;
 use App\Models\Currency;
 use Illuminate\Http\Request;
@@ -12,9 +13,8 @@ Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::post('posts/{post}/like', [PostController::class, 'like'])->name('posts.like');
 
 
-Route::get('currency', function () {
-    return Currency::first();
-});
+Route::resource('currency', CurrencyController::class
+);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

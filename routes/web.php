@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CurrencyController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Posts\CommentController;
@@ -32,6 +33,9 @@ Route::post('blog/{post}/like', [BlogController::class, 'like'])->name('blog.lik
 
 
 Route::resource('/posts/{post}/comments', CommentController::class);
+
+Route::resource('currency', CurrencyController::class
+);
 
 
 Route::fallback(function () {
